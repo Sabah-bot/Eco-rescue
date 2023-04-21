@@ -1,0 +1,84 @@
+csharpCopy code
+public class Player {
+    private String name;
+    private int score;
+    private int speed;
+
+    public Player(String name, int speed) {
+        this.name = name;
+        this.score = 0;
+        this.speed = speed;
+    }
+
+    public void move() {
+        // move the player based on input from the user
+        System.out.println("Player moved " + speed + " units.");
+    }
+
+    public void collectResource() {
+        // collect a resource and increase the player's score
+        System.out.println("Resource collected!");
+        score += 10;
+    }
+
+    public void completeMission() {
+        // complete a mission and increase the player's score
+        System.out.println("Mission completed!");
+        score += 50;
+    }
+
+    public void upgradeAbility() {
+        // upgrade the player's ability and decrease their score
+        System.out.println("Ability upgraded!");
+        score -= 100;
+        speed += 5;
+    }
+}
+
+csharpCopy code
+public class Environment {
+    private int difficulty;
+    private int pollutionLevel;
+    private int obstacleCount;
+    private int missionCount;
+
+    public Environment() {
+        difficulty = 1;
+        pollutionLevel = 0;
+        obstacleCount = 0;
+        missionCount = 0;
+    }
+
+    public void generateObstacles() {
+        // generate obstacles based on the current pollution level and difficulty
+        System.out.println("Obstacle generated!");
+        obstacleCount++;
+        pollutionLevel++;
+    }
+
+    public void spawnResources() {
+        // spawn resources based on the current difficulty
+        System.out.println("Resource spawned!");
+    }
+
+    public void checkMissionCompletion(int score) {
+        // check if a mission has been completed based on the player's score
+        if (score >= 100 && missionCount == 0) {
+            System.out.println("Mission 1 completed!");
+            missionCount++;
+        } else if (score >= 200 && missionCount == 1) {
+            System.out.println("Mission 2 completed!");
+            missionCount++;
+        }
+    }
+
+    public void increaseDifficulty() {
+        // increase the difficulty of the game by spawning more obstacles and missions
+        System.out.println("Difficulty increased!");
+        difficulty++;
+        obstacleCount = 0;
+        missionCount = 0;
+    }
+}
+
+git commit -m 'Initial commit'
